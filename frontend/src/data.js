@@ -7,7 +7,7 @@ const data ={
             image:'/images/p1.jpg',
             price:899,
             brand:'Nike',
-            rating: 4.5,
+            rating: 4,
             numReviews: 10,
             description: 'high quality product'
         },
@@ -19,7 +19,7 @@ const data ={
             price:899,
             brand:'Peter-England',
             rating: 4.5,
-            numReviews: 10,
+            numReviews: 20,
             description: 'high quality product'
         },
         {
@@ -29,8 +29,8 @@ const data ={
             image:'/images/p3.jpg',
             price:899,
             brand:'UCB',
-            rating: 4.5,
-            numReviews: 10,
+            rating: 0,
+            numReviews: 0,
             description: 'high quality product'
         },
         {
