@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
 import Product from '../components/product';
 import axios from 'axios';
 import MessageBox from '../components/MessageBox';
