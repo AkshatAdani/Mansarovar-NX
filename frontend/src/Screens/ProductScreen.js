@@ -1,29 +1,42 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Rating from '../components/rating';
-import data from '../data';
+import {  useDispatch, useSelector } from 'react-redux';
 import {Link} from 'react-router-dom';
+import LoadingBox from '../components/LoadingBox';
+import MessageBox from '../components/MessageBox';
+import { detailsProduct } from '../actions/productActions';
 
 export default function ProductScreen(props){
-    const product = data.products.find(x => x.id === Number(props.match.params.id));
-    if(!product){
-        return <div>Product not found</div>
-    }
+    const dispatch = useDispatch();
+    const productID = props.match.params.id;
+    const   productDetails = useSelector((state) => state.productDetails);
+    const {loading, error, product} = productDetails;
+
+    useEffect(()=>{
+        dispatch(detailsProduct(productID));
+    }, [dispatch, productID]);
+
     return(
         <div>
-            <Link to="/">Back to result</Link>
-          <div className="row top">
-              <div className="col-2">
-                  <img className="large" src={product.image} alt={product.name}></img>
-              </div>
-              <div className="col-1">
+            {loading? (<LoadingBox></LoadingBox>)
+            :
+            error? (<MessageBox variant="danger">{error}</MessageBox>)
+            :(
+                <div>
+                <Link to="/">Back to result</Link>
+                <div className="row top">
+                    <div className="col-2">
+                    <img className="large" src={product.image} alt={product.name}></img>
+                    </div>
+                <div className="col-1">
                 <ul>
                     <li>
                         <h1>{product.name}</h1>
                     </li>
                     <li>
                         <Rating 
-                        rating={product.rating}
-                        numReviews={product.numReviews}>
+                            rating={product.rating}
+                            numReviews={product.numReviews}>
                         </Rating>
                     </li>
                     <li>Price: ₹{product.price}</li>
@@ -46,9 +59,9 @@ export default function ProductScreen(props){
                                   <div>Status:</div>
                                   <div>{product.countInStock > 0 ? (
                                       <span className="success">In Stock</span>
-                                  ) : (
-                                      <span className="danger">Unavailable</span>
-                                  )}
+                                      ) : (
+                                          <span className="danger">Unavailable</span>
+                                          )}
                                   </div>
                               </div>
                           </li>
@@ -61,6 +74,12 @@ export default function ProductScreen(props){
           </div>  
         </div>
     )}
+        </div>
+    );
+}
+    
+
+                
                             
 
               
