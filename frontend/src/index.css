@@ -77,6 +77,9 @@ html {
     cursor: pointer;
     color: oldlace;
   }
+  button.FontColor{
+    color: black;
+  }
   input:hover,
   select:hover,
   textarea:hover,
@@ -125,10 +128,18 @@ html {
   .col-2{
     flex: 2 1 50rem;
   }
+  .min-30{
+    min-width: 30rem;
+  }
+
 
   /*Image*/
   img{
     border-radius: 0.5rem;
+  }
+  img.small{
+    max-width: 5rem;
+    width: 100%;
   }
   img.medium{
     max-width: 29rem;
@@ -145,7 +156,6 @@ html {
     border-radius: 0.5rem;
     margin: 1rem;
   }
-
   .card-body{
     padding: 1rem;
   }
