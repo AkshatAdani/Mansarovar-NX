@@ -20,7 +20,7 @@ useEffect(()=>{
 
 }, [dispatch, productID, qty]); 
 const removeFromCartHandler = (id) => {
-    
+    dispatch(removeFromCart(id));
 }; 
 const checkoutHandler = () => {
     props.history.push('/signin?redirect=shipping');
