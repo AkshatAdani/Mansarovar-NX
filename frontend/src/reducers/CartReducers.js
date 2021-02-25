@@ -14,7 +14,7 @@ export const cartReducer = (state = {cartItems:[] },action) => {
                 return {...state, cartItems:[...state.cartItems, item]}; //concatinating cart Items
             }
         case CART_REMOVE_ITEM:
-            return {...state, cartItems: state.cartItems.filter((x)=> x.product !== action.payload),}
+            return {...state, cartItems: state.cartItems.filter((x) => x.product !== action.payload)}
     
         default:
              return state;

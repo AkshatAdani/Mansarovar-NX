@@ -31,7 +31,7 @@ return(
     <h1>Shopping-Cart</h1>
     {cartItems.length ===0 ?
     <MessageBox>
-        Cart is Empty. <Link to="/">Go Shopping</Link>
+        Cart is Empty. <Link to="/"><b>Go Shopping</b></Link>
     </MessageBox>
     :
     (

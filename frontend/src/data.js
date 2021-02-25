@@ -39,7 +39,7 @@ const data ={
         {
             id:4,
             name:'Peter-England pant',
-            category:'Pants',
+            category:'pants',
             image:'/images/p4.jpg',
             price:1199,
             countInStock: 0,
