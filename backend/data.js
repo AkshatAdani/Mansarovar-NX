@@ -17,7 +17,6 @@ const data ={
     ],
     products: [
         {
-            id:1,
             name:'Nike Slim Shirt',
             category:'Shirts',
             image:'/images/p1.jpg',
@@ -29,7 +28,6 @@ const data ={
             description: 'high quality product'
         },
         {
-            id:2,
             name:'Peter-England Shirt',
             category:'Shirts',
             image:'/images/p2.jpg',
@@ -41,7 +39,6 @@ const data ={
             description: 'high quality product'
         },
         {
-            id:3,
             name:'UCB Shirt',
             category:'Shirts',
             image:'/images/p3.jpg',
@@ -53,7 +50,6 @@ const data ={
             description: 'high quality product'
         },
         {
-            id:4,
             name:'Peter-England pant',
             category:'Pants',
             image:'/images/p4.jpg',
@@ -65,19 +61,17 @@ const data ={
             description: 'high quality product'
         },
         {
-            id:5,
             name:'Louis-Phillepe pant',
             category:'Pants',
             image:'/images/p5.jpg',
             price:1599,
             countInStock: 15,
-            brand:'',
+            brand:'Louis-Phillepe',
             rating: 4.5,
             numReviews: 10,
             description: 'high quality product'
         },
         {
-            id:6,
             name:'U.S.Polo pant',
             category:'Pants',
             image:'/images/p6.jpg',
@@ -87,8 +81,8 @@ const data ={
             rating: 4.5,
             numReviews: 10,
             description: 'high quality product'
-        }
-    ]
+        },
+    ],
 };
 
 export default data;

@@ -1,4 +1,4 @@
-import Axios from "axios"
+import Axios from 'axios';
 import { CART_ADD_ITEM, CART_REMOVE_ITEM } from "../constants/CartConstants";
 
 export const addToCart = (productID, qty) => async(dispatch, getState) => {
@@ -10,7 +10,7 @@ export const addToCart = (productID, qty) => async(dispatch, getState) => {
             image: data.image,
             price: data.price,
             countInStock: data.countInStock,
-            product: data.id,
+            product: data._id,
             qty
         }
     });

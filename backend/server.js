@@ -1,29 +1,19 @@
 import express from 'express';
 import mongoose from 'mongoose';
-import data from './data.js';
+import productRouter from './routers/productRouter.js';
 import userRouter from './routers/userRouter.js';
 
 const app = express();
-mongoose.connect(process.env.MONDODB_URL || 'mongodb://localhost/mnx',{
+
+mongoose.connect(process.env.MONGODB_URL || 'mongodb://localhost/mnx',{
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true,
 });
 
 
-app.get('/api/products/:id', (req,res) => {
-    const product = data.products.find(x => x.id === Number(req.params.id));
-    console.log(product);
-    if(product){
-        res.send(product);
-    }else {
-        res.status(404).send({message: 'Product not found'});
-    }
-});
-app.get('/api/products', (req,res) => {
-    res.send(data.products);
-});
 app.use('/api/users', userRouter);
+app.use('/api/products', productRouter);
 app.get('/', (req,res) => {
     res.send('server is ready');
 });

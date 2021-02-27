@@ -1,7 +1,7 @@
 const data ={
     products: [
         {
-            id:1,
+            _id:1,
             name:'Nike Slim Shirt',
             category:'Shirts',
             image:'/images/p1.jpg',
@@ -13,7 +13,7 @@ const data ={
             description: 'high quality product'
         },
         {
-            id:2,
+            _id:2,
             name:'Peter-England Shirt',
             category:'Shirts',
             image:'/images/p2.jpg',
@@ -25,7 +25,7 @@ const data ={
             description: 'high quality product'
         },
         {
-            id:3,
+            _id:3,
             name:'UCB Shirt',
             category:'Shirts',
             image:'/images/p3.jpg',
@@ -37,7 +37,7 @@ const data ={
             description: 'high quality product'
         },
         {
-            id:4,
+            _id:4,
             name:'Peter-England pant',
             category:'pants',
             image:'/images/p4.jpg',
@@ -49,7 +49,7 @@ const data ={
             description: 'high quality product'
         },
         {
-            id:5,
+            _id:5,
             name:'Louis-Phillepe pant',
             category:'Pants',
             image:'/images/p5.jpg',
@@ -61,7 +61,7 @@ const data ={
             description: 'high quality product'
         },
         {
-            id:6,
+            _id:6,
             name:'U.S.Polo pant',
             category:'Pants',
             image:'/images/p6.jpg',

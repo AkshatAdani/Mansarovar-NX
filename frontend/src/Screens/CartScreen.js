@@ -71,7 +71,7 @@ return(
 )}
 </div>
 <div className="col-1">
-        <div className="card card-body akshat">
+        <div className="card card-body ">
             <ul>
                 <li>
                     <h2>Subtotal: ({cartItems.reduce((a,c)=> a + c.qty, 0)} items) 
