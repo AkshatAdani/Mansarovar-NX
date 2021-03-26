@@ -14,6 +14,10 @@ const initialState = {
         cartItems: localStorage.getItem('cartItems')
                    ? JSON.parse(localStorage.getItem('cartItems')) // to convert string into array.
                    :[] ,
+        shippingAddress: localStorage.getItem('shippingAddress')
+                   ? JSON.parse(localStorage.getItem('shippingAddress'))
+                   : {},
+        paymentMethod: 'PayPal',
     },
 };
 const reducer = combineReducers({
