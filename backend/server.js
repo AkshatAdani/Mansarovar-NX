@@ -2,6 +2,7 @@ import express from 'express';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import productRouter from './routers/productRouter.js';
+import orderRouter from './routers/orderRouter.js';
 import userRouter from './routers/userRouter.js';
 
 
@@ -19,6 +20,7 @@ mongoose.connect(process.env.MONGODB_URL || 'mongodb://localhost/mnx',{
 
 app.use('/api/users', userRouter);
 app.use('/api/products', productRouter);
+app.use('/api/orders', orderRouter);
 app.get('/', (req,res) => {
     res.send('server is ready');
 });
