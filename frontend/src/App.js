@@ -4,6 +4,7 @@ import {BrowserRouter,Link,Route} from 'react-router-dom';
 import { signout } from './actions/userActions';
 import CartScreen from './Screens/CartScreen';
 import HomeScreen from './Screens/HomeScreen';
+import OrderHistoryScreen from './Screens/OrderHistoryScreen';
 import ProductScreen from './Screens/ProductScreen';
 import ShippingAddressScreen from './Screens/ShippingAddressScreen';
 import PlaceOrderScreen from './Screens/PlaceOrderScreen';
@@ -11,6 +12,8 @@ import OrderScreen from './Screens/OrderScreen';
 import PaymentMethodScreen from './Screens/PaymentMethodScreen';
 import RegisterScreen from './Screens/registerScreen';
 import signinScreen from './Screens/signinScreen';
+import ProfileScreen from './Screens/ProfileScreen';
+import PrivateRoute from './components/PrivateRoute';
 function App() {
   const cart = useSelector((state) => state.cart);
   const {cartItems} = cart;
@@ -39,8 +42,15 @@ function App() {
                 <div className="dropdown">
                 <Link to = "#">{userInfo.name} <i className="fa fa-caret-down"></i></Link>
                 <ul className="dropdown-content">
-                  <Link to = "#signout" onClick={signoutHandler}>Sign-Out
-                  </Link>
+                  <li>
+                      <Link to="/profile">User Profile</Link>
+                  </li>
+                  <li>
+                    <Link to="/orderhistory">Order History</Link>
+                  </li>
+                  <li>
+                    <Link to = "#signout" onClick={signoutHandler}>Sign-Out</Link>
+                  </li>
                 </ul>
                 </div>
               ):(
@@ -59,6 +69,8 @@ function App() {
         <Route path="/payment" component={PaymentMethodScreen}></Route>
         <Route path="/placeorder" component={PlaceOrderScreen}></Route>
         <Route path="/order/:id" component={OrderScreen}></Route>
+        <Route path="/orderhistory" component={OrderHistoryScreen}></Route>
+        <PrivateRoute path="/profile"component={ProfileScreen}></PrivateRoute>
         <Route path="/" component={HomeScreen} exact></Route>
 </main>
 <footer className="row center">All right reserved</footer>
