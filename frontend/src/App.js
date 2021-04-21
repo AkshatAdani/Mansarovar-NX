@@ -14,6 +14,8 @@ import RegisterScreen from './Screens/registerScreen';
 import signinScreen from './Screens/signinScreen';
 import ProfileScreen from './Screens/ProfileScreen';
 import PrivateRoute from './components/PrivateRoute';
+import AdminRoute from './components/AdminRoute';
+import ProductListScreen from './Screens/ProductListScreen';
 function App() {
   const cart = useSelector((state) => state.cart);
   const {cartItems} = cart;
@@ -36,7 +38,7 @@ function App() {
             {cartItems.length > 0 && (
               <span className="badge">{cartItems.length}</span>
             )}
-            </Link>
+          </Link>
             {
               userInfo ? (
                 <div className="dropdown">
@@ -57,6 +59,29 @@ function App() {
                 <Link to="/signin">Sign In</Link>
                 )
             }
+            { 
+              userInfo && userInfo.isAdmin && (
+              <div className="dropdown">
+                <Link to="#admin">
+                  Admin <i className="fa fa-caret-down"></i>
+                </Link>
+                <ul className="dropdown-content">
+                  <li>
+                    <Link to="/dashboard">Dashboard</Link>
+                  </li>
+                  <li>
+                    <Link to="/productlist">Products</Link>
+                  </li>
+                  <li>
+                    <Link to="/orderlist">Orders</Link>
+                  </li>
+                  <li>
+                    <Link to="/userlist">Users</Link>
+                  </li>
+                </ul>
+              </div>
+            )
+          }
 
         </div>
       </header>
@@ -71,6 +96,7 @@ function App() {
         <Route path="/order/:id" component={OrderScreen}></Route>
         <Route path="/orderhistory" component={OrderHistoryScreen}></Route>
         <PrivateRoute path="/profile"component={ProfileScreen}></PrivateRoute>
+        <AdminRoute path="/productlist" component={ProductListScreen}></AdminRoute>
         <Route path="/" component={HomeScreen} exact></Route>
 </main>
 <footer className="row center">All right reserved</footer>
