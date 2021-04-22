@@ -3,10 +3,10 @@ import { PRODUCT_CREATE_FAIL, PRODUCT_CREATE_REQUEST, PRODUCT_CREATE_SUCCESS, PR
 // import data from '../data';
 
 // Add redux to home screen
-export const listProducts = ({ seller = '' }) => async (dispatch) => {
+export const listProducts = ({ seller = '', name = '' }) => async (dispatch) => {
     dispatch({type: PRODUCT_LIST_REQUEST});
     try{
-        const { data } = await Axios.get(`/api/products?seller=${seller}`);
+      const { data } = await Axios.get(`/api/products?seller=${seller}&name=${name}`);
         dispatch({type:PRODUCT_LIST_SUCCESS, payload: data});
     }
     catch(error){
