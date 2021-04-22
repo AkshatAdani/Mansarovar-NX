@@ -15,7 +15,7 @@ export const productListReducer = (state={loading: true, products:[] },action) =
 };
 
 // Add redux to product screen || Add individual product to the redux store.
-export const productDetailsReducer = (state={loading: true, product:{} },action) =>{
+export const productDetailsReducer = (state = { loading: true }, action) => {
     switch(action.type){
         case PRODUCT_DETAILS_REQUEST:
             return {loading: true};
