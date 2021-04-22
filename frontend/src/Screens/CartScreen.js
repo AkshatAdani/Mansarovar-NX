@@ -11,7 +11,7 @@ const qty = props.location.search
             ? Number(props.location.search.split('=')[1])
             : 1;
 const cart = useSelector((state) => state.cart);
-const {cartItems} = cart;
+const { cartItems, error } = cart;
 
 useEffect(()=>{
     if(productID){
@@ -29,6 +29,7 @@ return(
 <div className="row top">
 <div className="col-2">
     <h1>Shopping-Cart</h1>
+    {error && <MessageBox variant="danger">{error}</MessageBox>}
     {cartItems.length ===0 ?
     <MessageBox>
         Cart is Empty. <Link to="/"><b>Go Shopping</b></Link>
