@@ -34,6 +34,7 @@ export default function ChatBox(props) {
         setMessages([...messages, { body: data.body, name: data.name }]);
       });
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [messages, isOpen, socket]);
 
   const supportHandler = () => {
