@@ -27,6 +27,10 @@ import SearchScreen from './Screens/SearchScreen';
 import MessageBox from './components/MessageBox';
 import LoadingBox from './components/LoadingBox';
 import { listProductCategories } from './actions/productActions';
+import MapScreen from './Screens/MapScreen';
+import DashboardScreen from './Screens/DashboardScreen';
+import ChatBox from './components/ChatBox';
+import SupportScreen from './Screens/SupportScreen';
 function App() {
   const cart = useSelector((state) => state.cart);
   const [sidebarIsOpen, setSidebarIsOpen] = useState(false);
@@ -124,6 +128,9 @@ function App() {
                   <li>
                     <Link to="/userlist">Users</Link>
                   </li>
+                  <li>
+                    <Link to="/support">Support</Link>
+                  </li>
                 </ul>
               </div>
             )
@@ -137,7 +144,7 @@ function App() {
               <strong>Categories</strong>
               <button
                 onClick={() => setSidebarIsOpen(false)}
-                className="close-sidebar"
+                className="close-sidebar FontColor"
                 type="button"
               >
                 <i className="fa fa-close"></i>
@@ -177,20 +184,27 @@ function App() {
         <Route path="/search/category/:category" component={SearchScreen} exact></Route>
         <Route path="/search/category/:category/name/:name" component={SearchScreen} exact></Route>
         <Route
-            path="/search/category/:category/name/:name/min/:min/max/:max/rating/:rating/order/:order"
+            path="/search/category/:category/name/:name/min/:min/max/:max/rating/:rating/order/:order/pageNumber/:pageNumber"
             component={SearchScreen}
             exact
         ></Route>
         <PrivateRoute path="/profile"component={ProfileScreen}></PrivateRoute>
+        <PrivateRoute path="/map" component={MapScreen}></PrivateRoute>
         <AdminRoute path="/productlist" component={ProductListScreen} exact></AdminRoute>
+        <AdminRoute path="/productlist/pageNumber/:pageNumber" component={ProductListScreen} exact></AdminRoute>
         <AdminRoute path="/orderlist" component={OrderListScreen} exact></AdminRoute>
         <AdminRoute path="/userlist" component={UserListScreen}></AdminRoute>
         <AdminRoute path="/user/:id/edit" component={UserEditScreen}></AdminRoute>
+        <AdminRoute path="/dashboard" component={DashboardScreen}></AdminRoute>
+        <AdminRoute path="/support" component={SupportScreen}></AdminRoute>
         <SellerRoute path="/productlist/seller" component={ProductListScreen}></SellerRoute>
         <SellerRoute path="/orderlist/seller" component={OrderListScreen}></SellerRoute>
         <Route path="/" component={HomeScreen} exact></Route>
 </main>
-<footer className="row center">All right reserved</footer>
+<footer className="row center">
+    {userInfo && !userInfo.isAdmin && <ChatBox userInfo={userInfo} />}
+    <div>All right reserved</div>{' '}
+</footer>
 </div>
 </BrowserRouter>
 );}

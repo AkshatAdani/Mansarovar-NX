@@ -5,7 +5,15 @@ const data ={
             name: 'Akshat',
             email:'akshatadani99@gmail.com',
             password:bcrypt.hashSync('1234', 8),
-            isAdmin: true
+            isAdmin: true,
+            isSeller: true,
+            seller: {
+            name: 'Mafatlal Family Shop',
+            logo: '/images/mafatlal.jpg',
+            description: 'best seller',
+            rating: 4.5,
+            numReviews: 120,
+      },
         },
         {
             name: 'John',
