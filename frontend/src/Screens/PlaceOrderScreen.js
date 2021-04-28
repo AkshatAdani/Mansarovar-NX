@@ -19,8 +19,9 @@ export default function PlaceOrderScreen(props) {
     cart.cartItems.reduce((a, c) => a + c.qty * c.price, 0)
   );
   cart.shippingPrice = cart.itemsPrice > 100 ? toPrice(0) : toPrice(10);
-  cart.taxPrice = toPrice(0.025 * cart.itemsPrice);
-  cart.totalPrice = cart.itemsPrice + cart.shippingPrice + cart.taxPrice + cart.taxPrice;
+  cart.taxPriceSgst = toPrice(0.025 * cart.itemsPrice);
+  cart.taxPriceCgst = toPrice(0.025 * cart.itemsPrice);
+  cart.totalPrice = cart.itemsPrice + cart.shippingPrice + cart.taxPriceSgst + cart.taxPriceCgst;
   const dispatch = useDispatch();
   const placeOrderHandler = () => {
     dispatch(createOrder({ ...cart, orderItems: cart.cartItems }));
@@ -71,7 +72,7 @@ export default function PlaceOrderScreen(props) {
                           ></img>
                         </div>
                         <div className="min-30">
-                          <Link to={`/product/₹{item.product}`}>
+                          <Link to={`/product/${item.product}`}>
                             {item.name}
                           </Link>
                         </div>
@@ -102,13 +103,13 @@ export default function PlaceOrderScreen(props) {
               <li>
                 <div className="row">
                   <div>SGST</div>
-                  <div>₹{cart.taxPrice.toFixed(2)}</div>
+                  <div>₹{cart.taxPriceSgst.toFixed(2)}</div>
                 </div>
               </li>
               <li>
                 <div className="row">
                   <div>CGST</div>
-                  <div>₹{cart.taxPrice.toFixed(2)}</div>
+                  <div>₹{cart.taxPriceCgst.toFixed(2)}</div>
                 </div>
               </li>
               <li>

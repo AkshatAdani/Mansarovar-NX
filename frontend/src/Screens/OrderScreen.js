@@ -163,8 +163,14 @@ export default function OrderScreen(props) {
               </li>
               <li>
                 <div className="row">
-                  <div>Tax</div>
-                  <div>₹{order.taxPrice.toFixed(2)}</div>
+                  <div>SGST</div>
+                  <div>₹{order.taxPriceSgst.toFixed(2)}</div>
+                </div>
+              </li>
+              <li>
+                <div className="row">
+                  <div>CGST</div>
+                  <div>₹{order.taxPriceCgst.toFixed(2)}</div>
                 </div>
               </li>
               <li>

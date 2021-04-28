@@ -98,7 +98,8 @@ orderRouter.post(
         paymentMethod: req.body.paymentMethod,
         itemsPrice: req.body.itemsPrice,
         shippingPrice: req.body.shippingPrice,
-        taxPrice: req.body.taxPrice,
+        taxPriceSgst: req.body.taxPriceSgst,
+        taxPriceCgst: req.body.taxPriceCgst,
         totalPrice: req.body.totalPrice,
         user: req.user._id,
       });
@@ -145,7 +146,7 @@ orderRouter.put(
         .messages()
         .send(
           {
-            from: 'MansarovarNX <mansarovarnx@mg.yourdomain.com>',
+            from: 'MansarovarNX <amazona@mg.yourdomain.com>',
             to: `${order.user.name} <${order.user.email}>`,
             subject: `New order ${order._id}`,
             html: payOrderEmailTemplate(order),
@@ -174,6 +175,24 @@ orderRouter.delete(
     if (order) {
       const deleteOrder = await order.remove();
       res.send({ message: 'Order Deleted', order: deleteOrder });
+    } else {
+      res.status(404).send({ message: 'Order Not Found' });
+    }
+  })
+);
+
+orderRouter.put(
+  '/:id/deliver',
+  isAuth,
+  isAdmin,
+  expressAsyncHandler(async (req, res) => {
+    const order = await Order.findById(req.params.id);
+    if (order) {
+      order.isDelivered = true;
+      order.deliveredAt = Date.now();
+
+      const updatedOrder = await order.save();
+      res.send({ message: 'Order Delivered', order: updatedOrder });
     } else {
       res.status(404).send({ message: 'Order Not Found' });
     }
