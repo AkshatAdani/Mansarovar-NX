@@ -27,7 +27,6 @@ import SearchScreen from './Screens/SearchScreen';
 import MessageBox from './components/MessageBox';
 import LoadingBox from './components/LoadingBox';
 import { listProductCategories } from './actions/productActions';
-import MapScreen from './Screens/MapScreen';
 import DashboardScreen from './Screens/DashboardScreen';
 import ChatBox from './components/ChatBox';
 import SupportScreen from './Screens/SupportScreen';
@@ -189,7 +188,6 @@ function App() {
             exact
         ></Route>
         <PrivateRoute path="/profile"component={ProfileScreen}></PrivateRoute>
-        <PrivateRoute path="/map" component={MapScreen}></PrivateRoute>
         <AdminRoute path="/productlist" component={ProductListScreen} exact></AdminRoute>
         <AdminRoute path="/productlist/pageNumber/:pageNumber" component={ProductListScreen} exact></AdminRoute>
         <AdminRoute path="/orderlist" component={OrderListScreen} exact></AdminRoute>
