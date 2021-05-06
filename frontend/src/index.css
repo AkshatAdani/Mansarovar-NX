@@ -28,6 +28,9 @@ html {
     grid-area: header;
     background-color: #203040;
   }
+  .Akshat{
+    background-color: #e0e0ff;
+}
   main {
     grid-area: main;
     padding: 1rem;

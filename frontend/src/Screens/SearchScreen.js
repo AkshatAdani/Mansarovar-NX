@@ -59,12 +59,13 @@ export default function SearchScreen(props) {
         ) : error ? (
           <MessageBox variant="danger">{error}</MessageBox>
         ) : (
-          <div>{products.length} Results</div>
+          <div>Results={products.length}</div>
         )}
         <div>
-          Sort by{' '}
+          Sort by:{' '}
           <select
             value={order}
+            className="Akshat"
             onChange={(e) => {
               props.history.push(getFilterUrl({ order: e.target.value }));
             }}
@@ -77,7 +78,7 @@ export default function SearchScreen(props) {
         </div>
       </div>
       <div className="row top">
-        <div className="col-1">
+        <div className="col-1 Akshat">
           <h3>Department</h3>
           <div>
             {loadingCategories ? (

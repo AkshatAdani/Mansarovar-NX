@@ -67,12 +67,6 @@ function App() {
             ></Route>
           </div>
         <div>
-          <Link to="/cart">
-            Cart
-            {cartItems.length > 0 && (
-              <span className="badge">{cartItems.length}</span>
-            )}
-          </Link>
             {
               userInfo ? (
                 <div className="dropdown">
@@ -90,9 +84,13 @@ function App() {
                 </ul>
                 </div>
               ):(
-                <Link to="/signin">Sign In</Link>
+                <Link to="/signin">Login</Link>
                 )
             }
+            {userInfo?(null):(
+              
+              <Link to="/register">Register</Link>
+              )}
             {userInfo && userInfo.isSeller && (
               <div className="dropdown">
                 <Link to="#admin">
@@ -110,7 +108,7 @@ function App() {
             )}
             { 
               userInfo && userInfo.isAdmin && (
-              <div className="dropdown">
+                <div className="dropdown">
                 <Link to="#admin">
                   Admin <i className="fa fa-caret-down"></i>
                 </Link>
@@ -134,6 +132,12 @@ function App() {
               </div>
             )
           }
+                <Link to="/cart">
+                  Cart
+                  {cartItems.length > 0 && (
+                    <span className="badge">{cartItems.length}</span>
+                  )}
+                  </Link>
 
         </div>
       </header>

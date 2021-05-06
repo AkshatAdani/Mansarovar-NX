@@ -41,34 +41,34 @@ export default function RegisterScreen(props){
                     {loading && <LoadingBox></LoadingBox>}
                     {error && <MessageBox variant="danger">Email-address already exists</MessageBox>}
                 <div>
-                    <label htmlFor="name">Name</label>
+                    <label htmlFor="name">Name:</label>
                     <input type="text" id="name" placeholder="Enter Name" required
                     onChange={(e) => setName(e.target.value)}></input>
                 </div>
                 <div>
-                    <label htmlFor="email">Email-address</label>
+                    <label htmlFor="email">Email-address:</label>
                     <input type="email" id="email" placeholder="Enter Email" required
                     onChange={(e) => setEmail(e.target.value)}></input>
                 </div>
                 <div>
-                    <label htmlFor="password">Password</label>
+                    <label htmlFor="password">Password:</label>
                     <input type="password" id="password" placeholder="Enter Password" required
                     onChange={(e) => setPassword(e.target.value)}></input>
                 </div>
                 <div>
-                    <label htmlFor="confirmPassword">Confirm-Password</label>
+                    <label htmlFor="confirmPassword">Confirm-Password:</label>
                     <input type="password" id="confirmPassword" placeholder="Enter Confirm-Password" required
                     onChange={(e) => setConfirmPassword(e.target.value)}></input>
                 </div>
                 <div>
                     <label />
-                    <button className="primary" type="submit">Sign-In</button>
+                    <button className="primary" type="submit">Register</button>
                 </div>
                 <div>
                     <label />
                     <div>
                         Already have an account? {' '}
-                        <Link to={`/signin?redirect=${redirect}`}>Sign-In</Link>
+                        <Link to={`/signin?redirect=${redirect}`}>Login</Link>
                     </div>
                 </div>
             </form>

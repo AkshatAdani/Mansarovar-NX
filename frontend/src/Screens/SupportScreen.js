@@ -73,7 +73,7 @@ export default function SupportScreen() {
         setMessages(allMessages);
       });
     }
-  }, [messages, socket, users]);
+  }, [messages, socket, userInfo._id, userInfo.isAdmin, userInfo.name, users]);
 
   const selectUser = (user) => {
     allSelectedUser = user;
@@ -125,7 +125,7 @@ export default function SupportScreen() {
                 className={user._id === selectedUser._id ? '  selected' : '  '}
               >
                 <button
-                  className="block"
+                  className="block Fontcolor"
                   type="button"
                   onClick={() => selectUser(user)}
                 >

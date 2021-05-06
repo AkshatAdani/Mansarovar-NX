@@ -26,7 +26,7 @@ export default function HomeScreen(){
     }, [dispatch]);
     return(
         <div>
-            <h2>Top Sellers</h2>
+            <h1>Top Sellers</h1>
       {loadingSellers ? (
         <LoadingBox></LoadingBox>
       ) : errorSellers ? (
@@ -34,7 +34,7 @@ export default function HomeScreen(){
       ) : (
         <>
           {sellers.length === 0 && <MessageBox>No Seller Found</MessageBox>}
-          <Carousel showArrows autoPlay showThumbs={false}>
+          <Carousel showArrows autoPlay showThumbs={false} infiniteLoop='true'>
             {sellers.map((seller) => (
               <div key={seller._id}>
                 <Link to={`/seller/${seller._id}`}>
@@ -46,7 +46,7 @@ export default function HomeScreen(){
           </Carousel>
         </>
       )}
-      <h2>Featured Products</h2>
+      <h1>Featured Products</h1>
             {loading? (<LoadingBox></LoadingBox>)
             :
             error? (<MessageBox variant="danger">{error}</MessageBox>)

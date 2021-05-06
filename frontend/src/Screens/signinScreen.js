@@ -28,23 +28,23 @@ export default function SigninScreen(props){
         <div>
             <form className="form" onSubmit={submitHandler}>
                 <div>
-                    <h1>Sign-In</h1>
+                    <h1>Login</h1>
                 </div>
                     {loading && <LoadingBox></LoadingBox>}
                     {error && <MessageBox variant="danger">{error}</MessageBox>}
                 <div>
-                    <label htmlFor="email">Email-address</label>
+                    <label htmlFor="email">Email-address:</label>
                     <input type="email" id="email" placeholder="Enter Email" required
                     onChange={(e) => setEmail(e.target.value)}></input>
                 </div>
                 <div>
-                    <label htmlFor="password">Password</label>
+                    <label htmlFor="password">Password:</label>
                     <input type="password" id="password" placeholder="Enter Password" required
                     onChange={(e) => setPassword(e.target.value)}></input>
                 </div>
                 <div>
                     <label />
-                    <button className="primary" type="submit">Sign-In</button>
+                    <button className="primary" type="submit">Login</button>
                 </div>
                 <div>
                     <label />
