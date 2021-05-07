@@ -65,7 +65,7 @@ export default function SearchScreen(props) {
           Sort by:{' '}
           <select
             value={order}
-            className="Akshat"
+            className="Akshat2"
             onChange={(e) => {
               props.history.push(getFilterUrl({ order: e.target.value }));
             }}
@@ -78,7 +78,7 @@ export default function SearchScreen(props) {
         </div>
       </div>
       <div className="row top">
-        <div className="col-1 Akshat">
+        <div className="col-1">
           <h3>Department</h3>
           <div>
             {loadingCategories ? (

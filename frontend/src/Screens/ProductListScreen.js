@@ -38,7 +38,7 @@ export default function ProductListScreen(props) {
     dispatch(
       listProducts({ seller: sellerMode ? userInfo._id : '', pageNumber })
     );
-  }, [createdProduct,dispatch,props.history,sellerMode,successCreate,successDelete,userInfo._id,pageNumber,]);
+  }, [createdProduct,dispatch,props.history,sellerMode,successCreate,successDelete,userInfo._id,pageNumber]);
 
   const deleteHandler = (product) => {
     if (window.confirm('Are you sure to delete?')) {

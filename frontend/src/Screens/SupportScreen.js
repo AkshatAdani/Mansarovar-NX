@@ -125,7 +125,7 @@ export default function SupportScreen() {
                 className={user._id === selectedUser._id ? '  selected' : '  '}
               >
                 <button
-                  className="block Fontcolor"
+                  className="block FontColor"
                   type="button"
                   onClick={() => selectUser(user)}
                 >
